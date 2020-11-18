@@ -3,23 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/Style.css">
     <title>Document</title>
 </head>
 <body>
-    <h2>Bonjour</h2>
+    <div id="logo">
+<h2>Flashbot</h2>
+<img  src="https://www.pngkit.com/png/full/31-310840_a-running-robot-robot-run.png" alt="" srcset="">
 
-    <h1>Resultat pour : {{resultat}}</h1>
-    <!-- {% for j in job %}
-    <div>
-       <tr>
-          <td><b>Titre :</b>{{ j.title }}</td><br>
-          <td><b>Description :</b>{{ j.description }}</td><br>
-          <td><b>URL :</b> <a href={{j.link}}>{{j.link}}</a></td><br>
-          <td><b>Pub Date :</b>{{ j.pubDate }}</td>
-       </tr>
     </div>
-    {% endfor %} -->
 
-    {{resultat }}
+    <main id="retour">
+<h2>Resultat de :{{resultat}} </h2>
+
+<section>
+
+    {% for j in job %}
+<article id="annonce">
+<div id="tete">
+    <h4>{{ j.title }}</h4>
+    <p>{{ j.pubDate }}</p>
+</div>
+<div id="description"> 
+    <p>{{ j.description }}</p>
+</div>
+<a href="{{j.link}}">Voir +</a>
+</article>
+{% endfor %}
+</section>
+
+</main>
+   
+
 </body>
 </html>

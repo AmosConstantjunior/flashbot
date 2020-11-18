@@ -17,13 +17,10 @@ def index():
 def result():
     
     donnee = request.form.get('search_1')
-    def verifier():
-        if donnee in db.flashbot.find():
-            return db.flashbot.find()
-    
-    results = verifier().sort([("pubDate", -1)])
+    result = db.flashbot.find({ "$text": { "$search": donnee } }).sort([("pubDate", -1)])
 
-    return render_template('result.html', resultat=donnee)
+
+    return render_template('result.html', resultat=donnee, job=result)
 
 if __name__ == "__main__":
     app.run()
